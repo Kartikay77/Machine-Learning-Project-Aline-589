@@ -1,75 +1,99 @@
-# CS-589-Final-Project
-
 # 🧠 COMPSCI 589 Final Project – Spring 2025
 
-This repository contains original implementations of fundamental machine learning algorithms and their application on multiple real-world datasets as part of the final project for COMPSCI 589 at UMass Amherst.
+This repository contains custom implementations of core machine learning algorithms and their application across a variety of datasets. Developed as the final project for COMPSCI 589 at UMass Amherst.
 
-## 📌 Project Objectives
-
-- Implement **Decision Trees**, **Random Forests**, and **Naive Bayes** from scratch without ML libraries like scikit-learn or PyTorch.
-- Evaluate and compare their performance on diverse datasets through extensive experimentation.
-- Explore **hyperparameter tuning**, **cross-validation**, and **model robustness**.
-- Earned **extra credit** by including a challenging **multiclass, mixed-type dataset** for fertilizer recommendation.
-
-## 🗂️ Datasets Used
-
-| Dataset                        | Task Type          | Classes | Features     | Notes                                |
-|-------------------------------|--------------------|---------|--------------|--------------------------------------|
-| Handwritten Digits (Sklearn)  | Image classification| 10      | 64 (numeric) | Pixel-intensity classification       |
-| Parkinson’s Detection         | Binary classification| 2     | 22 (numeric) | Voice measurement for diagnosis      |
-| Rice Grain Types              | Binary classification| 2     | 7 (numeric)  | Morphological kernel features        |
-| Credit Approval               | Binary classification| 2     | 15 (mixed)   | Contains categorical + numerical     |
-| Fertilizer Recommendation     | Multiclass classification| 10 | Mixed       | Kaggle dataset, extra credit task    |
-
-## 🔍 Algorithms Implemented
-
-- ✅ **Decision Trees**  
-  Custom Gini/Entropy-based split logic, depth-tuning, suitable for mixed data.
-
-- 🌲 **Random Forests**  
-  Custom bagging ensemble of trees with tunable estimators.
-
-- 🧮 **Naive Bayes**  
-  Applied to multiclass fertilizer task; Laplace smoothing (α) tuning over wide ranges.
-
-## ⚙️ Methodology
-
-- Implemented using only **NumPy**, **Matplotlib**, and **Python's core libraries**.
-- Evaluated using **10-fold Stratified Cross-Validation**.
-- Plotted **learning curves** and **performance graphs** for hyperparameter sensitivity.
-
-## 📈 Sample Results
-
-| Dataset           | Best Model         | Accuracy | F1 Score |
-|------------------|--------------------|----------|----------|
-| Digits           | Random Forest (5 trees) | 0.881    | 0.880    |
-| Parkinson’s       | Decision Tree (depth 4) | 0.877    | 0.815    |
-| Rice              | Decision Tree (depth 4) | 0.921    | 0.919    |
-| Credit Approval   | Random Forest (20 trees)| 0.815    | 0.812    |
-| Fertilizer (Extra)| Decision Tree (depth 12)| 0.986    | 0.949    |
-
-## 📁 Repository Structure
-
-├── code/ # Python files with all algorithm implementations
-├── data/ # Cleaned datasets used in the project
-├── results/ # Output plots and metrics
-├── Final_Report.pdf # Complete project report (with graphs, tables, and analysis)
-└── README.md # Project overview (this file)
-
-
-## 🏆 Extra Credit
-
-- ✅ Evaluated all four datasets using **three algorithms** (DT, RF, NB)
-- ✅ Included a **custom multiclass dataset** with mixed data types
-- ✅ Achieved 100% F1 score for small-α values using Naive Bayes
-
-## 📧 Author
-
-**Kartikay Gupta**  
-Graduate Student – MSCS  
-📨 kartikaygupt@umass.edu  
-🔗 [LinkedIn](https://linkedin.com/in/kartikay77)
+> 👥 **Team Members**  
+> • Kartikay Gupta – Implemented Decision Tree, Random Forest, Naive Bayes  
+> • Jeffrey Deng – Implemented Neural Network (MLP with backpropagation)
 
 ---
 
-> _Note: All implementations are original and adhere to the no-ML-library rule defined in the project instructions._
+## 🎯 Project Goals
+
+- Apply and compare original implementations of key ML algorithms
+- Analyze algorithm behavior using **10-fold stratified cross-validation**
+- Explore hyperparameter tuning and visualize results via matplotlib
+- **No use of high-level ML libraries** like scikit-learn for modeling
+
+---
+
+## 📊 Datasets Used
+
+| Dataset            | Classes | Features | Type                            |
+|--------------------|---------|----------|---------------------------------|
+| Digits (Sklearn)   | 10      | 64       | Image classification            |
+| Parkinson’s        | 2       | 22       | Biomedical voice data           |
+| Rice Grain         | 2       | 7        | Morphological image features    |
+| Credit Approval    | 2       | 15       | Mixed categorical + numerical   |
+| Fertilizer (Kaggle)| 10      | Mixed    | Soil/crop conditions (Extra)    |
+
+---
+
+## 🧠 Algorithms Implemented
+
+| Algorithm        | Contributor     | Notes                                        |
+|------------------|------------------|----------------------------------------------|
+| Decision Tree    | Kartikay Gupta   | From-scratch, entropy/Gini split, label encoded |
+| Random Forest    | Kartikay Gupta   | Ensemble with bootstrap and aggregation      |
+| Naive Bayes      | Kartikay Gupta   | Multiclass support, tuned smoothing factor α |
+| Neural Network   | Jeffrey Deng     | Multilayer Perceptron with backpropagation   |
+
+---
+
+## 📈 Performance Summary
+
+| Algorithm        | Digits (Acc/F1) | Parkinson (Acc/F1) | Rice (Acc/F1) | Credit (Acc/F1) | Fertilizer (Acc/F1) |
+|------------------|------------------|----------------------|----------------|------------------|----------------------|
+| Decision Tree    | 0.8202 / 0.8198 | 0.8770 / 0.8152     | 0.9213 / 0.9192| 0.8133 / 0.8100 | 0.9861 / 0.9493     |
+| Random Forest    | 0.8812 / 0.8797 | 0.8253 / 0.7855     | 0.9055 / 0.9033| 0.8149 / 0.8121 | — / —               |
+| Naive Bayes      | — / —           | — / —               | — / —         | — / —           | 1.0000 / 1.0000     |
+| Neural Network   | 0.9806 / 0.9803 | 0.8974 / 0.8427     | 0.9449 / 0.9436| 0.9160 / 0.9157 | — / —               |
+
+✔️ **Highlights**:  
+- Neural Networks outperformed all others in **Digits, Parkinson’s, Rice, and Credit** datasets.  
+- Naive Bayes achieved **perfect scores** on the Fertilizer dataset.  
+- Decision Trees showed consistently strong and interpretable results across datasets.
+
+---
+
+## 📂 Project Structure
+
+├── code/ # All algorithm implementations (no scikit-learn models used)
+
+--
+├── data/ # Datasets in CSV format
+
+--
+├── results/ # Output plots, performance tables
+
+--
+├── Final_Report.pdf # Official final submission with figures and write-up
+
+--
+└── README.md # This file
+--
+
+---
+
+## 🏆 Extra Credit
+
+- ✅ Used 3+ algorithms for multiple datasets  
+- ✅ Included a **challenging multiclass + mixed-type dataset**  
+- ✅ Perfect score (1.000) achieved using Naive Bayes on Fertilizer data
+
+---
+
+## 🧑‍💻 Authors
+
+- **Kartikay Gupta**  
+  📧 kartikaygupt@umass.edu  
+  🔗 [LinkedIn](https://linkedin.com/in/kartikay77)
+
+- **Jeffrey Deng**  
+  📧 jjdeng@umass.edu
+
+---
+
+> ⚠️ Models in this repo are implemented fully from scratch per course policy. Neural Network implementation and performance analysis credited to Jeffrey Deng.
+
+
